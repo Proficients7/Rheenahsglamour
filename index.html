@@ -1,1 +1,238 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Rheenah's Glamour</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#E6CCC0;--w:#FAF9F6;--t:#69443C;--m:#9a6a62;--bd:rgba(105,68,60,.13);--sh:rgba(105,68,60,.09);--f:'The Seasons','Cormorant Garamond',Georgia,serif}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--f);background:var(--bg);color:var(--t);min-height:100vh}
+header{background:var(--w);border-bottom:1px solid var(--bd);position:sticky;top:0;z-index:100;box-shadow:0 2px 12px var(--sh)}
+.hdr{max-width:1200px;margin:0 auto;padding:14px 22px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.brand{cursor:pointer;flex-shrink:0}
+.bn{font-size:1.35rem;font-weight:300;letter-spacing:.17em;text-transform:uppercase;line-height:1.1}
+.bt{font-size:.57rem;letter-spacing:.23em;color:var(--m);text-transform:uppercase;margin-top:2px;font-style:italic}
+.sw{flex:1;min-width:150px;max-width:440px}
+.sw input{width:100%;padding:9px 14px;background:var(--bg);border:1px solid var(--bd);font-family:var(--f);font-size:.87rem;color:var(--t);border-radius:2px;outline:none;transition:border .2s}
+.sw input::placeholder{color:var(--m);font-style:italic}
+.sw input:focus{border-color:var(--t)}
+.wahdr{margin-left:auto;flex-shrink:0}
+.wahdr a{display:flex;align-items:center;gap:6px;padding:8px 15px;background:var(--t);color:var(--w);text-decoration:none;font-size:.6rem;letter-spacing:.17em;text-transform:uppercase;border-radius:2px;white-space:nowrap;transition:background .2s}
+.wahdr a:hover{background:#4a2e29}
+.ib{max-width:1200px;margin:0 auto;padding:10px 22px 0;font-size:.67rem;letter-spacing:.13em;text-transform:uppercase;color:var(--m)}
+.gw{max-width:1200px;margin:0 auto;padding:14px 22px 36px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px}
+.card{background:var(--w);border:1px solid var(--bd);border-radius:3px;overflow:hidden;cursor:pointer;transition:transform .2s,box-shadow .2s;display:flex;flex-direction:column}
+.card:hover{transform:translateY(-4px);box-shadow:0 10px 26px var(--sh)}
+.card img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block;background:var(--bg)}
+.cb{padding:11px 12px 13px;flex:1;display:flex;flex-direction:column}
+.cn{font-size:.76rem;letter-spacing:.09em;text-transform:uppercase;margin-bottom:4px;line-height:1.35}
+.cd{font-size:.7rem;color:var(--m);font-style:italic;flex:1;margin-bottom:10px;line-height:1.5}
+.btn{width:100%;padding:9px 0;background:var(--t);color:var(--w);border:none;font-family:var(--f);font-size:.6rem;letter-spacing:.19em;text-transform:uppercase;cursor:pointer;border-radius:2px;transition:background .2s}
+.btn:hover{background:#4a2e29}
+.pgn{display:flex;align-items:center;justify-content:center;gap:5px;padding:24px 22px 50px;flex-wrap:wrap}
+.pg{min-width:36px;height:36px;padding:0 9px;background:var(--w);border:1px solid var(--bd);font-family:var(--f);font-size:.75rem;color:var(--t);cursor:pointer;border-radius:2px;transition:all .18s;display:flex;align-items:center;justify-content:center}
+.pg:hover:not(:disabled){background:var(--bg)}
+.pg.on{background:var(--t);color:var(--w);border-color:var(--t)}
+.pg:disabled{opacity:.3;cursor:default}
+.dot{padding:0 3px;color:var(--m);font-size:.8rem;display:flex;align-items:center}
+.empty{text-align:center;padding:70px 20px;color:var(--m);font-size:.88rem;font-style:italic;letter-spacing:.1em;grid-column:1/-1}
+.ov{display:none;position:fixed;inset:0;background:rgba(50,28,22,.42);z-index:200;align-items:center;justify-content:center;padding:16px}
+.ov.open{display:flex}
+.mo{background:var(--w);border-radius:4px;max-width:400px;width:100%;padding:28px 28px 24px;position:relative;box-shadow:0 20px 60px rgba(0,0,0,.2);max-height:90vh;overflow-y:auto}
+.mcl{position:absolute;top:12px;right:16px;background:none;border:none;cursor:pointer;font-size:1.25rem;color:var(--m);line-height:1;padding:4px}
+.mh{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;margin-bottom:18px;padding-bottom:10px;border-bottom:1px solid var(--bd)}
+.mpn{font-size:.9rem;font-weight:300;margin-bottom:5px;line-height:1.35}
+.mpd{font-size:.72rem;color:var(--m);font-style:italic;margin-bottom:18px;line-height:1.5}
+label{display:block;font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:var(--m);margin-bottom:4px}
+.fi{width:100%;padding:8px 11px;background:var(--bg);border:1px solid var(--bd);font-family:var(--f);font-size:.86rem;color:var(--t);border-radius:2px;outline:none;margin-bottom:12px;transition:border .2s}
+.fi:focus{border-color:var(--t)}
+textarea.fi{height:62px;resize:vertical}
+.mwa{width:100%;padding:12px 0;background:#25D366;color:#fff;border:none;font-family:var(--f);font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;border-radius:2px;margin-top:2px;transition:background .2s}
+.mwa:hover{background:#1da851}
+.mnote{font-size:.58rem;color:var(--m);text-align:center;margin-top:9px;letter-spacing:.07em;font-style:italic}
+footer{background:var(--w);border-top:1px solid var(--bd);padding:26px 22px;text-align:center}
+.fl{font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--m);margin-bottom:7px}
+.fn{font-size:1.05rem;font-weight:300;letter-spacing:.17em;text-transform:uppercase;margin-bottom:13px}
+.fc{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.fc a{display:inline-block;padding:7px 16px;border:1px solid var(--bd);font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--t);text-decoration:none;border-radius:2px;transition:all .2s}
+.fc a:hover{background:var(--t);color:var(--w)}
+@media(max-width:580px){
+.hdr{padding:11px 14px}
+.bn{font-size:1.1rem}
+.gw{padding:10px 12px 28px}
+.grid{grid-template-columns:repeat(2,1fr);gap:9px}
+.mo{padding:22px 16px 18px}
+.wahdr a span{display:none}
+}
+</style>
+</head>
+<body>
+<header>
+<div class="hdr">
+<div class="brand" onclick="reset()">
+<div class="bn">Rheenah's Glamour</div>
+<div class="bt">Glamour is a Lifestyle</div>
+</div>
+<div class="sw">
+<input type="search" id="q" placeholder="Search products..." oninput="search()" autocomplete="off">
+</div>
+<div class="wahdr">
+<a href="https://wa.me/256742882140" target="_blank">
+<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+<span>WhatsApp</span>
+</a>
+</div>
+</div>
+</header>
+<div class="ib" id="ib"></div>
+<div class="gw"><div class="grid" id="grid"></div></div>
+<div class="pgn" id="pgn"></div>
+<div class="ov" id="ov" onclick="bgClose(event)">
+<div class="mo">
+<button class="mcl" onclick="closeM()">&#x2715;</button>
+<div class="mh">Order via WhatsApp</div>
+<div class="mpn" id="mpn"></div>
+<div class="mpd" id="mpd"></div>
+<label>Colour / Variant</label>
+<input class="fi" id="mc" placeholder="e.g. Pink, Blue, Gold...">
+<label>Quantity</label>
+<input class="fi" id="mq" placeholder="1" value="1">
+<label>Your Name</label>
+<input class="fi" id="mn" placeholder="Your full name">
+<label>Your Phone Number</label>
+<input class="fi" id="mp" placeholder="e.g. 07XX XXX XXX">
+<label>Notes (optional)</label>
+<textarea class="fi" id="mno" placeholder="Any special requests..."></textarea>
+<button class="mwa" onclick="sendWA()">Send Order on WhatsApp</button>
+<div class="mnote">You'll be taken to WhatsApp to confirm your order</div>
+</div>
+</div>
+<footer>
+<div class="fl">Kampala, Uganda</div>
+<div class="fn">Rheenah's Glamour</div>
+<div class="fc">
+<a href="https://wa.me/256742882140" target="_blank">+256 742 882 140</a>
+<a href="mailto:rheenah546@gmail.com">rheenah546@gmail.com</a>
+<a href="http://www.rheenahsglamour.com" target="_blank">rheenahsglamour.com</a>
+</div>
+</footer>
+  <script>
+const P=[
+{n:`Hair Set — Blue`,d:`Satin bow clip, hair bands, claw clip & 10 hair clips`,i:`https://raw.githubusercontent.com/Proficients7/rheenahsglamour/main/imgs/hair_blue.jpg`},
+{n:`Hair Set — Green`,d:`Satin bow clip, hair bands, claw clip & 10 hair clips`,i:`https://raw.githubusercontent.com/Proficients7/rheenahsglamour/main/imgs/hair_green.jpg`},
+{n:`Hair Set — Purple / Lilac`,d:`Satin bow clip, hair bands, claw clip & 10 hair clips`,i:`https://raw.githubusercontent.com/Proficients7/rheenahsglamour/main/imgs/hair_purple.jpg`},
+{n:`Hair Set — Rainbow / Ivory`,d:`Satin bow clip, hair bands, claw clip & 10 hair clips`,i:`https://raw.githubusercontent.com/Proficients7/rheenahsglamour/main/imgs/hair_rainbow.jpg`},
+{n:`Hair Set — Orange`,d:`Satin bow clip, hair bands, claw clip & 10 hair clips`,i:`https://raw.githubusercontent.com/Proficients7/rheenahsglamour/main/imgs/hair_orange.jpg`},
+{n:`Hair Set — Salmon / Coral`,d:`Satin bow clip, hair bands, claw clip & 10 hair clips`,i:`https://raw.githubusercontent.com/Proficients7/rheenahsglamour/main/imgs/hair_salmon.jpg`},
+{n:`Hair Set — Black`,d:`Satin bow clip, hair bands, claw clip & 10 hair clips`,i:`https://raw.githubusercontent.com/Proficients7/rheenahsglamour/main/imgs/hair_black_bow.jpg`},
+{n:`Bow Headbands — Pink & Black`,d:`Wide statement satin bow headbands — 2 colours`,i:`https://raw.githubusercontent.com/Proficients7/rheenahsglamour/main/imgs/hair_bands.jpg`},
+{n:`Cute Hair Clips — Blue`,d:`14-piece cartoon character clip set, blue theme`,i:`https://raw.githubusercontent.com/Proficients7/rheenahsglamour/main/imgs/hairclips_blue.jpg`},
+{n:`Cute Hair Clips — Brown`,d:`14-piece aesthetic bear & flower clip set`,i:`https://raw.githubusercontent.com/Proficients7/rheenahsglamour/main/imgs/hairclips_brown.jpg`},
+{n:`Cute Hair Clips — Purple (Barbie)`,d:`14-piece Barbie-themed clip set — purple`,i:`https://raw.githubusercontent.com/Proficients7/rheenahsglamour/main/imgs/hairclips_purple.jpg`},
+{n:`Cute Hair Clips — Pink`,d:`14-piece bunny & rainbow clip set — pink`,i:`https://raw.githubusercontent.com/Proficients7/rheenahsglamour/main/imgs/hairclips_pink.jpg`},
+{n:`Fluffy Earmuffs — Grey`,d:`Soft plush faux-fur earmuffs`,i:`https://raw.githubusercontent.com/Proficients7/rheenahsglamour/main/imgs/earmuffs_grey.jpg`},
+{n:`Fluffy Earmuffs — Pink`,d:`Soft plush faux-fur earmuffs`,i:`https://raw.githubusercontent.com/Proficients7/rheenahsglamour/main/imgs/earmuffs_pink.jpg`},
+{n:`Fluffy Earmuffs — Black`,d:`Soft plush faux-fur earmuffs`,i:`https://raw.githubusercontent.com/Proficients7/rheenahsglamour/main/imgs/earmuffs_black.jpg`},
+{n:`Fluffy Earmuffs — Brown`,d:`Soft plush faux-fur earmuffs`,i:`https://raw.githubusercontent.com/Proficients7/rheenahsglamour/main/imgs/earmuffs_brown.jpg`},
+{n:`Spa Headband Set — Pink`,d:`Bubble spa headband + wrist towel bands`,i:`https://raw.githubusercontent.com/Proficients7/rheenahsglamour/main/imgs/spa_pink.jpg`},
+{n:`Spa Headband Set — Blue`,d:`Bubble spa headband + wrist towel bands`,i:`https://raw.githubusercontent.com/Proficients7/rheenahsglamour/main/imgs/spa_blue.jpg`},
+{n:`Spa Headband Set — Blue II`,d:`Bubble headband + bow band + wrist bands`,i:`https://raw.githubusercontent.com/Proficients7/rheenahsglamour/main/imgs/spa_blue2.jpg`},
+{n:`Spa Headband Set — White`,d:`Bubble spa headband + wrist towel bands`,i:`https://raw.githubusercontent.com/Proficients7/rheenahsglamour/main/imgs/spa_white.jpg`},
+{n:`Spa Headband Set — Black`,d:`Bubble spa headband + wrist towel bands`,i:`https://raw.githubusercontent.com/Proficients7/rheenahsglamour/main/imgs/spa_black.jpg`},
+{n:`Strawberry Glow Set`,d:`Face mask, lip mask, oil perfume 3ml, lip therapy & tongue scraper`,i:`https://raw.githubusercontent.com/Proficients7/rheenahsglamour/main/imgs/skincare_pink.jpg`},
+{n:`Blueberry Hydration Set`,d:`Face mask, lip mask, oil perfume 3ml, lip therapy & tongue scraper`,i:`https://raw.githubusercontent.com/Proficients7/rheenahsglamour/main/imgs/skincare_blue.jpg`},
+{n:`Coconut Smoothing Set`,d:`Face mask, lip mask, oil perfume 3ml, lip therapy & tongue scraper`,i:`https://raw.githubusercontent.com/Proficients7/rheenahsglamour/main/imgs/skincare_coconut.jpg`},
+{n:`Nail Full Kit — Blue`,d:`Press-on nails, nail care kit, UV nail dryer lamp & nail glue`,i:`https://raw.githubusercontent.com/Proficients7/rheenahsglamour/main/imgs/nail_kit_blue.jpg`},
+{n:`Nail Full Kit — Pink`,d:`Press-on nails, nail care kit, UV nail dryer lamp & nail glue`,i:`https://raw.githubusercontent.com/Proficients7/rheenahsglamour/main/imgs/nail_kit_pink.jpg`},
+{n:`Nail Full Kit — Pink II`,d:`Press-on nails, nail care kit, UV nail dryer lamp & nail glue`,i:`https://raw.githubusercontent.com/Proficients7/rheenahsglamour/main/imgs/nail_kit_pink2.jpg`},
+{n:`Boob Tape Set`,d:`Boob tape roll + silicone & disposable nipple covers`,i:`https://raw.githubusercontent.com/Proficients7/rheenahsglamour/main/imgs/boob_tape.jpg`},
+{n:`Period Relief Heating Belt`,d:`Heated menstrual belt — pink or white — USB rechargeable`,i:`https://raw.githubusercontent.com/Proficients7/rheenahsglamour/main/imgs/period_belt.jpg`},
+{n:`Bow Print Elastic Belt`,d:`Stretchy bow-print waistband — pink or black`,i:`https://raw.githubusercontent.com/Proficients7/rheenahsglamour/main/imgs/bow_belt.jpg`},
+{n:`Clover Necklace — Stainless Steel`,d:`Multi-clover pendant necklace — blue, green or gold`,i:`https://raw.githubusercontent.com/Proficients7/rheenahsglamour/main/imgs/jewelry.jpg`},
+{n:`Gold Ring Collection`,d:`Assorted minimalist open gold rings — various styles`,i:`https://raw.githubusercontent.com/Proficients7/rheenahsglamour/main/imgs/rings_gold.jpg`},
+{n:`Ring Tray — Mixed Metals`,d:`Large curated selection of gold & silver rings`,i:`https://raw.githubusercontent.com/Proficients7/rheenahsglamour/main/imgs/rings_tray.jpg`},
+{n:`Phone Chain Set — Pink Butterfly`,d:`Beaded phone chain + butterfly print AirPod case`,i:`https://raw.githubusercontent.com/Proficients7/rheenahsglamour/main/imgs/phone_pink.jpg`},
+{n:`Phone Chain Set — Yellow Heart`,d:`Beaded phone chain + heart AirPod case`,i:`https://raw.githubusercontent.com/Proficients7/rheenahsglamour/main/imgs/phone_yellow.jpg`},
+{n:`Phone Chain Set — Blue Heart`,d:`Beaded phone chain + flower heart AirPod case`,i:`https://raw.githubusercontent.com/Proficients7/rheenahsglamour/main/imgs/phone_blue.jpg`},
+{n:`Bow Earbud Case — Pink`,d:`Hard case with 3D satin bow — zipper close`,i:`https://raw.githubusercontent.com/Proficients7/rheenahsglamour/main/imgs/earbud_case_pink.jpg`},
+{n:`Bow Earbud Case — Lilac`,d:`Hard case with 3D satin bow — zipper close`,i:`https://raw.githubusercontent.com/Proficients7/rheenahsglamour/main/imgs/earbud_case_lilac.jpg`},
+{n:`Bow Earbud Case — White / Black`,d:`Hard case with 3D satin bow — zipper close`,i:`https://raw.githubusercontent.com/Proficients7/rheenahsglamour/main/imgs/earbud_case_white.jpg`},
+{n:`Bow Earbud Case — Black / Hot Pink`,d:`Hard case with 3D satin bow — zipper close`,i:`https://raw.githubusercontent.com/Proficients7/rheenahsglamour/main/imgs/earbud_case_black.jpg`},
+{n:`Bow Earbud Case — Orange`,d:`Hard case with 3D satin bow — zipper close`,i:`https://raw.githubusercontent.com/Proficients7/rheenahsglamour/main/imgs/earbud_case_orange.jpg`},
+{n:`Mini Puppy Charm Handbag`,d:`Mini structured bag with leather puppy charm — 4 colours`,i:`https://raw.githubusercontent.com/Proficients7/rheenahsglamour/main/imgs/bag_puppy.jpg`},
+{n:`Dog Charm Mini Crossbody`,d:`Vintage-style mini bag with puppy charm — 4 colours`,i:`https://raw.githubusercontent.com/Proficients7/rheenahsglamour/main/imgs/bag_dog_charm.jpg`},
+{n:`Croc-Pattern Tote Bag`,d:`Structured croc-embossed tote — 7 colours`,i:`https://raw.githubusercontent.com/Proficients7/rheenahsglamour/main/imgs/bag_croc.jpg`},
+{n:`Butterfly Clutch — White / Blue`,d:`Embroidered butterfly clutch with gold chain`,i:`https://raw.githubusercontent.com/Proficients7/rheenahsglamour/main/imgs/bag_bfly_white.jpg`},
+{n:`Butterfly Clutch — Pink / Gold`,d:`Kiss-frame butterfly clutch with gold chain`,i:`https://raw.githubusercontent.com/Proficients7/rheenahsglamour/main/imgs/bag_bfly_pink_clasp.jpg`},
+{n:`Butterfly Clutch — Black / White`,d:`Embroidered butterfly clutch with gold chain`,i:`https://raw.githubusercontent.com/Proficients7/rheenahsglamour/main/imgs/bag_bfly_bw.jpg`},
+{n:`Butterfly Clutch — Black / Gold`,d:`Kiss-frame butterfly bag with gold chain`,i:`https://raw.githubusercontent.com/Proficients7/rheenahsglamour/main/imgs/bag_bfly_black.jpg`},
+{n:`Butterfly Clasp Bag — Black`,d:`Kiss-lock butterfly evening bag with gold chain`,i:`https://raw.githubusercontent.com/Proficients7/rheenahsglamour/main/imgs/bag_bfly_black_clasp.jpg`},
+{n:`Leather Shoulder Tote`,d:`Structured leather tote with charm — brown, black or cream`,i:`https://raw.githubusercontent.com/Proficients7/rheenahsglamour/main/imgs/bag_leather.jpg`},
+{n:`Flower Floor Cushion — Pink`,d:`Large plush daisy floor cushion — super soft`,i:`https://raw.githubusercontent.com/Proficients7/rheenahsglamour/main/imgs/cushion_pink.jpg`},
+{n:`Flower Floor Cushion — White`,d:`Large plush daisy floor cushion — super soft`,i:`https://raw.githubusercontent.com/Proficients7/rheenahsglamour/main/imgs/cushion_white.jpg`},
+{n:`Flower Floor Cushion — Yellow`,d:`Large plush daisy floor cushion — super soft`,i:`https://raw.githubusercontent.com/Proficients7/rheenahsglamour/main/imgs/cushion_yellow.jpg`},
+{n:`Galaxy Projector Lamp`,d:`Crystal ball ocean wave projector — USB powered`,i:`https://raw.githubusercontent.com/Proficients7/rheenahsglamour/main/imgs/projector_glow.jpg`},
+{n:`Galaxy Projector — With Remote`,d:`LED disco ball projector + USB & remote control`,i:`https://raw.githubusercontent.com/Proficients7/rheenahsglamour/main/imgs/projector_actual.jpg`},
+{n:`Sunset Lamp — RGB Remote`,d:`Sunset projection lamp with colour remote`,i:`https://raw.githubusercontent.com/Proficients7/rheenahsglamour/main/imgs/sunset_lamp.jpg`},
+{n:`Sunset Projection Light`,d:`USB sunset circle light — multiple colour modes`,i:`https://raw.githubusercontent.com/Proficients7/rheenahsglamour/main/imgs/sunset_proj.jpg`},
+{n:`LED Fairy String Lights`,d:`Copper wire lights — 9 colours: white, warm white, RGB, blue, yellow, green, pink, purple, red`,i:`https://raw.githubusercontent.com/Proficients7/rheenahsglamour/main/imgs/fairy_lights.jpg`},
+{n:`Glow-in-the-Dark Stars`,d:`Stick-on ceiling stars — glow at night`,i:`https://raw.githubusercontent.com/Proficients7/rheenahsglamour/main/imgs/stars_glow.jpg`},
+{n:`Glow Stars — Bulk Pack`,d:`Large bag of glow-in-the-dark stars`,i:`https://raw.githubusercontent.com/Proficients7/rheenahsglamour/main/imgs/stars_bag.jpg`},
+{n:`Glow Stars — Loose Mix`,d:`Multicolour loose glow star mix`,i:`https://raw.githubusercontent.com/Proficients7/rheenahsglamour/main/imgs/stars_loose.jpg`},
+{n:`Artificial Ivy Vine Garland`,d:`Silk ivy leaf garland — walls & shelves`,i:`https://raw.githubusercontent.com/Proficients7/rheenahsglamour/main/imgs/decor_ivy.jpg`},
+{n:`Artificial Round Leaf Vine`,d:`Realistic round-leaf vine garland`,i:`https://raw.githubusercontent.com/Proficients7/rheenahsglamour/main/imgs/vine_round.jpg`},
+{n:`Large Green Leaf Vine`,d:`Bold lush green leaf vine garland`,i:`https://raw.githubusercontent.com/Proficients7/rheenahsglamour/main/imgs/vine_green.jpg`}
+];
+    const PER=12;
+let vis=P.slice(),pg=1,cN='',cD='';
+function search(){const q=document.getElementById('q').value.toLowerCase().trim();vis=q?P.filter(p=>p.n.toLowerCase().includes(q)||p.d.toLowerCase().includes(q)):P.slice();pg=1;render();}
+function reset(){document.getElementById('q').value='';vis=P.slice();pg=1;render();}
+function render(){
+const g=document.getElementById('grid');
+const s=(pg-1)*PER,sl=vis.slice(s,s+PER);
+document.getElementById('ib').textContent=vis.length===P.length?`All ${P.length} products`:`${vis.length} result${vis.length===1?'':'s'} found`;
+if(!sl.length){g.innerHTML='<div class="empty">No products found. Try a different search.</div>';}
+else{g.innerHTML=sl.map(p=>`<div class="card" onclick='openM(${JSON.stringify(p.n)},${JSON.stringify(p.d)})'><img src="${p.i}" alt="${p.n}" loading="lazy"><div class="cb"><div class="cn">${p.n}</div><div class="cd">${p.d}</div><button class="btn">Order via WhatsApp</button></div></div>`).join('');}
+renderPgn();
+window.scrollTo({top:0,behavior:'smooth'});
+}
+function renderPgn(){
+const tot=Math.ceil(vis.length/PER);
+if(tot<=1){document.getElementById('pgn').innerHTML='';return;}
+let h=`<button class="pg" onclick="go(${pg-1})" ${pg===1?'disabled':''}>&#8249;</button>`;
+for(let i=1;i<=tot;i++){
+if(tot>8&&i>2&&i<tot-1&&Math.abs(i-pg)>1){if(i===3||i===tot-2)h+='<span class="dot">...</span>';}
+else{h+=`<button class="pg${i===pg?' on':''}" onclick="go(${i})">${i}</button>`;}
+}
+h+=`<button class="pg" onclick="go(${pg+1})" ${pg===tot?'disabled':''}>&#8250;</button>`;
+document.getElementById('pgn').innerHTML=h;
+}
+function go(p){const t=Math.ceil(vis.length/PER);if(p<1||p>t)return;pg=p;render();}
+function openM(n,d){
+cN=n;cD=d;
+document.getElementById('mpn').textContent=n;
+document.getElementById('mpd').textContent=d;
+['mc','mn','mp','mno'].forEach(id=>document.getElementById(id).value='');
+document.getElementById('mq').value='1';
+document.getElementById('ov').classList.add('open');
+document.body.style.overflow='hidden';
+}
+function closeM(){document.getElementById('ov').classList.remove('open');document.body.style.overflow='';}
+function bgClose(e){if(e.target.id==='ov')closeM();}
+function sendWA(){
+const c=document.getElementById('mc').value.trim();
+const q=document.getElementById('mq').value.trim()||'1';
+const n=document.getElementById('mn').value.trim();
+const p=document.getElementById('mp').value.trim();
+const no=document.getElementById('mno').value.trim();
+const msg=`Hi Rheenah! I'd like to order:\n\nProduct: ${cN}\nColour/Variant: ${c||'--'}\nQty: ${q}\nMy Name: ${n||'--'}\nMy Number: ${p||'--'}${no?'\nNotes: '+no:''}`;
+window.open('https://wa.me/256742882140?text='+encodeURIComponent(msg),'_blank');
+closeM();
+}
+render();
+</script>
+</body>
+</html>
